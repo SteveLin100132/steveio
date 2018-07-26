@@ -1,0 +1,13 @@
+<div class="form-container" ng-controller="formController">
+  <form ng-submit="formController.submitForm()" name="userForm">
+    <input type="text"
+           name="username"
+           required
+           ng-model="formController.user.username"
+           ng-pattern="/^[a-zA-Z][0-9]{9}$/">
+    <span ng-show="userForm.username.$invalid">格式錯誤</span>
+    <input type="submit"
+           value="Submit"
+           ng-disabled="userForm.$invalid">
+  </form>
+</div>

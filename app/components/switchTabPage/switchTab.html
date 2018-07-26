@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>切換選單範例</title>
+
+    <script src="assets/libs/bower_components/angular/angular.min.js"></script>
+    <script src="assets/libs/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bower_components/less/dist/less.min.js"></script>
+  </head>
+
+  <body ng-app="steveSwitch">
+    <div class="switch-container" ng-controller="mainCtrl as mctrl">
+      <button type="button" ng-click="mctrl.switch('first')">First</button>
+      <button type="button" ng-click="mctrl.switch('second')">Second</button>
+
+      <div ng-switch on="mctrl.tab">
+        <div ng-switch-when="first">
+          <h1>First Page</h1>
+          <div ng-controller="subCtrl as sctrl">
+            <ul>
+              <li ng-repeat="item in sctrl.items">
+                <span ng-bind="item.name"></span>
+              </li>
+            </ul>
+
+            <input type="text" value="" ng-model="sctrl.name">
+            <button type="button" ng-click="sctrl.addMember(sctrl.name)">ADD</button>
+          </div>
+        </div>
+
+        <div ng-switch-when="second">
+          <h1>Second Page</h1>
+          <div ng-controller="subCtrl as sctrl">
+            <ul>
+              <li ng-repeat="item in sctrl.items">
+                <span ng-bind="item.name"></span>
+              </li>
+            </ul>
+
+            <input type="text" value="" ng-model="sctrl.name">
+            <button type="button" ng-click="sctrl.addMember(sctrl.name)">ADD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      'use strict';
+
+      angular.module('steveSwitch', [])
+        .controller('mainCtrl', [function() {
+          let self = this;
+
+          self.tab = "first";
+
+          self.switch = function(t) {
+            self.tab = t;
+          };
+        }])
+        .controller('subCtrl', [function() {
+          let self = this;
+
+          self.items = [
+            { name: "Tom" },
+            { name: "Lisa" }
+          ];
+
+          self.addMember = function(n) {
+            let member = { name: n };
+            self.items.push(member);
+          }
+        }]);
+    })();
+
+    </script>
+  </body>
+</html>

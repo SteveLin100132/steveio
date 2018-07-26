@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>主程式</title>
+
+    <script src="assets/libs/bower_components/angular/angular.min.js"></script>
+    <script src="assets/libs/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="assets/libs/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bower_components/less/dist/less.min.js"></script>
+
+    <script type="module" src="app/app.module.js"></script>
+    <script src="app/app.controller.js"></script>
+    <script src="app/app.route.js"></script>
+  </head>
+
+  <body ng-app="steveApp">
+    <div class="main-container" ng-controller="mainController as ctrl">
+      <ul>
+        <li ng-repeat="page in ctrl.pages">
+          <a href="{{ page.link }}">{{ page.title }}</a>
+        </li>
+      </ul>
+
+      <div ng-view></div>
+    </div>
+  </body>
+</html>
