@@ -21,15 +21,15 @@
   function appRouter($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: './app/components/formPage/form.html',
+        templateUrl: './app/views/formPage/form.html',
         controllerAs: 'vm'
       })
       .when('/form', {
-        templateUrl: './app/components/formPage/form.html',
+        templateUrl: './app/views/formPage/form.html',
         controllerAs: 'vm'
       })
       .when('/form/:id', {
-        templateUrl: './app/components/formPage/form.html',
+        templateUrl: './app/views/formPage/form.html',
         resolve: {
           accessPage: ['Constant', function(Constant) {
             return Constant.ACCESS;
@@ -40,10 +40,10 @@
         }]
       })
       .when('/switchTab', {
-        templateUrl: './app/components/switchTabPage/switchTab.html'
+        templateUrl: './app/views/switchTabPage/switchTab.html'
       })
       .when('/switchTabService', {
-        templateUrl: './app/components/switchTabServicePage/switchTabService.html'
+        templateUrl: './app/views/switchTabServicePage/switchTabService.html'
       })
       .otherwise({
         templateUrl: '404.html'
