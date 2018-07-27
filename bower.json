@@ -1,0 +1,13 @@
+{
+  "name": "steveio",
+  "authors": [
+    "Steve Lin <jojo404032@gmail.com>"
+  ],
+  "description": "steveio pakcage use in project",
+  "main": "index.html",
+  "keywords": [
+    "IoT"
+  ],
+  "license": "MIT",
+  "homepage": ""
+}

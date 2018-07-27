@@ -17,11 +17,16 @@
    * Create 2018/07/26
    * @author Chieng-Yu Lin
    */
-  appRouter.$inject = ['$routeProvider'];
-  function appRouter($routeProvider) {
+  appRouter.$inject = ['$routeProvider', '$locationProvider'];
+  function appRouter($routeProvider, $locationProvider) {
     $routeProvider
+      .when('/', {
+        templateUrl: './app/components/formPage/form.html',
+        controllerAs: 'vm'
+      })
       .when('/form', {
         templateUrl: './app/components/formPage/form.html',
+        controllerAs: 'vm'
       })
       .when('/form/:id', {
         templateUrl: './app/components/formPage/form.html',

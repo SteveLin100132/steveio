@@ -30,9 +30,9 @@
    */
   mainController.$inject = ['$scope'];
   function mainController($scope) {
-    let self = this;
+    let vm = this;
 
-    self.pages = [
+    vm.pages = [
       { title: "Form Page", link: "#!/form" },
       { title: "Switch Tab Page", link: "#!/switchTab" },
       { title: "Switch Tab Service Page", link: "#!/switchTabService" }

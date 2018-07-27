@@ -18,10 +18,10 @@ const FORM_CONTROLLER = (function() {
    */
   formController.$inject = ['$scope'];
   function formController($scope) {
-    let self = this;
+    let vm = this;
 
-    self.submitForm = function() {
-      console.log(self.user);
+    vm.submitForm = function() {
+      console.log(vm.user);
     };
   }
 })();
