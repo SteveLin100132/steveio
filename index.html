@@ -2,28 +2,69 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
     <title>主程式</title>
 
+    <!-- Style -->
+    <link rel="stylesheet/less" type="text/css" href="assets/styles/index.less">
+
+    <!-- Vender frameworks -->
     <script src="assets/libs/bower_components/angular/angular.min.js"></script>
     <script src="assets/libs/bower_components/angular-route/angular-route.min.js"></script>
     <script src="assets/libs/bower_components/firebase/firebase.js"></script>
     <script src="assets/libs/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="assets/libs/bower_components/less/dist/less.min.js"></script>
 
+    <!-- Self definition scripts -->
     <script type="module" src="app/app.module.js"></script>
     <script src="app/app.controller.js"></script>
     <script src="app/app.route.js"></script>
+
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Steve APP">
+
+    <link rel="apple-touch-icon" sizes="256x256" href="assets/images/icons/icon-256x256.png">
+    <link rel="apple-touch-startup-image" sizes="750x1334" href="images/startup.png">
+
+    <meta name="msapplication-TileImage" content="assets/images/icons/icon-256x256.png">
+    <meta name="msapplication-TileColor" content="#27006D">
   </head>
 
   <body ng-app="steveApp">
-    <div class="main-container" ng-controller="mainController as ctrl">
-      <ul>
-        <li ng-repeat="page in ctrl.pages">
-          <a href="{{ page.link }}">{{ page.title }}</a>
-        </li>
-      </ul>
+    <!-- App outer container -->
+    <div class="app-container" ng-controller="mainController as ctrl">
+      <!-- App topbar UI [default: hidden] -->
+      <div class="topbar">
+        <div class="back-button"></div>
+        <div class="menu-button"></div>
+      </div>
 
-      <div ng-view></div>
+      <!-- App router container -->
+      <div class="container" ng-view></div>
+
+      <!-- App toolbar UI [default: hidden] -->
+      <div class="toolbar">
+        <ul class="toolbar-panel">
+          <li class="toolbar-item item-devices">
+            <a href="#!/devices"></a>
+          </li>
+          <li class="toolbar-item item-analysis">
+            <a href="#!/analysis"></a>
+          </li>
+          <li class="toolbar-item item-setting">
+            <a href="#!/setting"></a>
+          </li>
+          <li class="toolbar-item item-events">
+            <a href="#!/events"></a>
+          </li>
+          <li class="toolbar-item item-information">
+            <a href="#!/information"></a>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>

@@ -21,7 +21,7 @@
   function appRouter($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: './app/views/formPage/form.html',
+        templateUrl: './app/views/connection/connection.view.html',
         controllerAs: 'vm'
       })
       .when('/form', {
